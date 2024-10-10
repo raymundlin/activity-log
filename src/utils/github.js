@@ -99,8 +99,8 @@ async function fetchAndFilterEvents() {
     let allEvents = await fetchAllEvents();
 
     let filteredEvents = [];
-    core.notice("Target Repos: " + targetRepos);
-    core.notice("Starred Repos: " + starredRepoNames);
+    core.notice(`Target Repos: ${targetRepos}`);
+    core.notice(`Starred Repos: ${starredRepoNames}`);
 
     while (filteredEvents.length < eventLimit) {
         filteredEvents = allEvents
