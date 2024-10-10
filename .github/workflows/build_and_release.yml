@@ -38,6 +38,11 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
+      - name: Pull latest
+        run: |
+          git config --global user.name 'raymundlin'
+          git config --global user.email '142639231+raymundlin@users.noreply.github.com'
+          git pull
       - name: Release
         uses: actions/create-release@v1
         env:
