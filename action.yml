@@ -14,6 +14,9 @@ inputs:
   OUTPUT_STYLE:
     description:  Specifies the format in which the output should be rendered (MARKDOWN or HTML).
     default:  MARKDOWN
+  TARGET_REPO:
+    description:  Only display events from target repo.
+    default: ''
   IGNORE_EVENTS:
     description:  The events to ignore, specified as a JSON array.
     required: false
