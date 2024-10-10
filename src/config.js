@@ -42,7 +42,7 @@ module.exports = {
     token: core.getInput('GITHUB_TOKEN', { required: true }),
     eventLimit: processEventLimit(core.getInput('EVENT_LIMIT')),
     style: processStyle(core.getInput('OUTPUT_STYLE')),
-    targetRepo: core.getInput('TARGET_REPO'),
+    targetRepos: processIgnoreEvents(core.getInput('TARGET_REPOS')),
     ignoreEvents: processIgnoreEvents(core.getInput('IGNORE_EVENTS')),
     readmePath: core.getInput('README_PATH'),
     commitMessage: core.getInput('COMMIT_MESSAGE')
