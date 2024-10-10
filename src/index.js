@@ -16,5 +16,4 @@ async function main() {
 }
 
 // Execute the main function
-core.notice("Version 4")
 main();
