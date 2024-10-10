@@ -99,7 +99,8 @@ async function fetchAndFilterEvents() {
     let allEvents = await fetchAllEvents();
 
     let filteredEvents = [];
-    console.log(targetRepos);
+    core.notice("Target Repos: " + targetRepos);
+    core.notice("Starred Repos: " + starredRepoNames);
 
     while (filteredEvents.length < eventLimit) {
         filteredEvents = allEvents
@@ -112,7 +113,6 @@ async function fetchAndFilterEvents() {
                     // Change the event type to 'StarEvent' if the repo is starred
                     return { ...event, type: isStarred ? 'StarEvent' : 'WatchEvent' };
                 }
-                else console.log(event.repo.name);
                 return event;
             })
             .slice(0, eventLimit);
