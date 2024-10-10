@@ -26,6 +26,12 @@ jobs:
           npm i -g @vercel/ncc
           npm i @actions/github
           npm run build
+      - name: Commit
+        run: |
+          git config --global user.name 'raymundlin'
+          git config --global user.email '142639231+raymundlin@users.noreply.github.com'
+          git commit -am "dist build"
+          git push
 
   release:
     runs-on: ubuntu-latest
