@@ -30424,7 +30424,7 @@ async function fetchAllEvents() {
 
             // Check for API rate limit or pagination issues
             if (events.length === 0) {
-                core.warning('⚠️ V7: No more events available.');
+                core.warning('⚠️ V8: No more events available.');
                 break; // No more events to fetch
             }
 
@@ -30450,8 +30450,6 @@ async function fetchAndFilterEvents() {
     let allEvents = await fetchAllEvents();
 
     let filteredEvents = [];
-    core.notice(`Target Repos: ${targetRepos}`);
-    core.notice(`Starred Repos: ${Array.from(starredRepoNames)}`);
 
     while (filteredEvents.length < eventLimit) {
         filteredEvents = allEvents
@@ -30468,13 +30466,13 @@ async function fetchAndFilterEvents() {
             })
             .slice(0, eventLimit);
 
-        if (filteredEvents.length < eventLimit) {
-            const additionalEvents = await fetchAllEvents();
-            if (additionalEvents.length === 0) break;
-            allEvents = additionalEvents.concat(allEvents);
-        } else {
-            break;
-        }
+        // if (filteredEvents.length < eventLimit) {
+        //     const additionalEvents = await fetchAllEvents();
+        //     if (additionalEvents.length === 0) break;
+        //     allEvents = additionalEvents.concat(allEvents);
+        // } else {
+        //     break;
+        // }
     }
 
     filteredEvents = filteredEvents.slice(0, eventLimit);
